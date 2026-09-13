@@ -29,3 +29,8 @@ button, input, textarea, select { font: inherit; }
   --info: #55a9c2; --info-foreground: #06171d; --info-hover: #66b7cf; --info-active: #3d91a9; --border: #33424a;
   --chart-color-1: #2ec3ce; --chart-color-2: #71d8df; --chart-color-3: #7fa3ae; --chart-color-4: #d0a24e; --chart-color-5: #db7373;
 }
+
+@media (max-width: 640px) {
+  html { font-size: 18px; }
+  body { line-height: 1.55; }
+}

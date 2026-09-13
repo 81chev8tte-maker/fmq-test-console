@@ -26,7 +26,7 @@
 .sessionProgress { display:grid; gap:.7rem; padding:.9rem; } .sessionProgress > div { display:grid; gap:.15rem; } .sessionProgress span { color:var(--muted-foreground); font-size:.65rem; font-weight:800; letter-spacing:.05em; text-transform:uppercase; } .sessionProgress strong { font-family:var(--font-family-monospace); font-size:.82rem; } .sessionProgress p { margin:0; color:var(--muted-foreground); font-size:.76rem; line-height:1.45; } .stepCount { flex:0 0 auto; color:var(--muted-foreground); font-family:var(--font-family-monospace); font-size:.68rem; }
 .footer { display:flex; justify-content:space-between; gap:1rem; width:min(100%,46rem); margin:0 auto; padding:0 1rem 1.4rem; color:var(--muted-foreground); font-family:var(--font-family-monospace); font-size:.6rem; }
 @media (min-width:680px) { .main { padding-top:1.3rem; } .heroPanel { grid-template-columns:1.4fr 1fr; align-items:end; } .fieldGrid { grid-template-columns:repeat(2,minmax(0,1fr)); } .packList { grid-template-columns:repeat(2,minmax(0,1fr)); } }
-@media (max-width:480px) {
+@media (max-width:640px) {
   .main,.header { padding-inline:.75rem; }
   .resumeCard { grid-template-columns:auto 1fr; }
   .resumeCard > button { grid-column:1/-1; width:100%; }

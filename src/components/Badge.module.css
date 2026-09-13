@@ -6,6 +6,6 @@
 .success { background:color-mix(in srgb,var(--success) 15%,var(--surface)); color:var(--success); border:1px solid color-mix(in srgb,var(--success) 20%,var(--surface)); }
 .warning { background:color-mix(in srgb,var(--warning) 15%,var(--surface)); color:var(--warning); border:1px solid color-mix(in srgb,var(--warning) 20%,var(--surface)); }
 .primary:hover { background:color-mix(in srgb,var(--primary) 80%,transparent); } .destructive:hover { background:color-mix(in srgb,var(--error) 25%,var(--surface)); } .secondary:hover { background:color-mix(in srgb,var(--secondary) 80%,transparent); } .outline:hover { background:color-mix(in srgb,var(--foreground) 5%,transparent); } .success:hover { background:color-mix(in srgb,var(--success) 25%,var(--surface)); } .warning:hover { background:color-mix(in srgb,var(--warning) 25%,var(--surface)); }
-@media (max-width:480px) {
+@media (max-width:640px) {
   .badge { min-height:1.75rem; font-size:.875rem !important; line-height:1.35; white-space:normal; text-align:left; }
 }

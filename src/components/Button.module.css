@@ -7,7 +7,7 @@
 .destructive { background:var(--error); color:var(--error-foreground); border-color:var(--error); } .outline { background:transparent; border-color:var(--primary); color:var(--primary); } .ghost { background:transparent; border-color:transparent; } .link { background:transparent; color:var(--primary); height:auto; padding:0; border:none; border-radius:0; min-height:2.75rem; }
 .primary:hover { background:color-mix(in oklch,var(--primary) 90%,var(--primary-foreground)); } .secondary:hover { background:color-mix(in oklch,var(--secondary) 90%,var(--secondary-foreground)); } .destructive:hover { background:color-mix(in oklch,var(--error) 90%,var(--error-foreground)); } .outline:hover,.ghost:hover { background:color-mix(in oklch,var(--primary) 12%,var(--background)); } .link:hover { text-decoration:underline; }
 .disabled { opacity:.5; cursor:not-allowed; pointer-events:none; }
-@media (max-width:480px) {
+@media (max-width:640px) {
   .sm,.md { min-height:2.75rem; height:auto; }
   .sm { font-size:.875rem; padding:.55rem var(--spacing-3); }
   .md { font-size:1rem; padding:.6rem var(--spacing-3); }
