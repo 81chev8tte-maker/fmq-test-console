@@ -1,0 +1,49 @@
+name: G1 migration bootstrap
+
+on:
+  push:
+    branches: [g1-vite-port]
+
+permissions:
+  contents: write
+
+jobs:
+  migrate-and-verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: g1-vite-port
+      - name: Fetch assembled G1 tree
+        run: |
+          curl --fail --location --retry 3 --output /tmp/g1tree.tgz 'https://89d45c2a-99e5-42c9-a178-6163b31a5256.sandbox.floot.app/_cdn/static/2fe85a88-e42a-4fb1-9228-e83c7fb8d0b0-fmq-test-console-g1-bootstrap.tgz'
+          echo 'df625bd1bfe93b80482ca9ac4d81472f0427152c206f5dd40f7b4637f5b50ab3  /tmp/g1tree.tgz' | sha256sum --check
+          tar -xzf /tmp/g1tree.tgz -C .
+          rm .github/workflows/g1-bootstrap.yml
+      - name: Verify migration boundaries
+        run: |
+          if grep -RInE '@floot|_floot|/_api|/_cdn|process\.env|react-helmet|react-router|react-query|sonner|localStorage\.clear\(|indexedDB|serviceWorker|navigator\.serviceWorker|caches\.' src .github package.json vite.config.ts index.html; then
+            echo 'Forbidden Floot/runtime/PWA coupling found.' >&2
+            exit 1
+          fi
+          test "$(grep -Rho 'fmq-test-console\.sessions\.v1' src | sort -u | wc -l)" -eq 1
+          ! grep -RInE 'family-music-quest\.(sessions|profiles)|tuckers-guitar-trainer.*localStorage' src
+          test ! -e src/components/EvidenceExportPanel.tsx
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm test
+      - run: npm run typecheck
+      - run: npm run build
+      - name: Verify GitHub Pages base path
+        run: node -e "const fs=require('fs'); const html=fs.readFileSync('dist/index.html','utf8'); if(!html.includes('/fmq-test-console/assets/')) process.exit(1)"
+      - name: Commit verified migration tree
+        run: |
+          rm -rf dist
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A
+          git commit -m 'G1: port accepted Test Console prototype to standalone Vite app'
+          git push origin HEAD:g1-vite-port
