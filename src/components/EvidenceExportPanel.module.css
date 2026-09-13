@@ -37,7 +37,7 @@
   .evidenceKinds { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .actions { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
-@media (max-width:480px) {
+@media (max-width:640px) {
   .panel { gap:1rem; padding:1rem; }
   .headingRow h3 { font-size:1.25rem; line-height:1.25; }
   .kicker { font-size:.8rem; line-height:1.35; }
