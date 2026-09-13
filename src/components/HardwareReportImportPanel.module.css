@@ -8,4 +8,20 @@
 .summaryGrid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:.45rem; margin:0; } .summaryGrid div { min-width:0; padding:.55rem; border:1px solid var(--border); border-radius:var(--radius-sm); background:var(--surface); } .summaryGrid dt { color:var(--muted-foreground); font-size:.62rem; font-weight:800; letter-spacing:.04em; text-transform:uppercase; } .summaryGrid dd { margin:.15rem 0 0; font-size:.72rem; font-weight:700; overflow-wrap:anywhere; }
 .pathStatuses { display:flex; flex-wrap:wrap; gap:.4rem; } .pathStatuses span { padding:.32rem .45rem; border:1px solid var(--border); border-radius:var(--radius-full); color:var(--muted-foreground); background:var(--surface); font-size:.66rem; }
 .sourceDetails,.warningList { color:var(--muted-foreground); font-size:.72rem; line-height:1.4; } .sourceDetails p,.warningList strong { color:var(--foreground); } .sourceDetails ul,.warningList ul { margin:.3rem 0 0; padding-left:1.1rem; } .rawNote { padding-top:.6rem; border-top:1px solid var(--border); color:var(--muted-foreground); font-size:.68rem; line-height:1.4; }
-@media (max-width:480px) { .headingRow,.sourceTopRow,.conflictActions { align-items:stretch; flex-direction:column; } .summaryGrid { grid-template-columns:1fr; } .conflictActions button { width:100%; } }
+@media (max-width:480px) {
+  .headingRow,.sourceTopRow,.conflictActions { align-items:stretch; flex-direction:column; }
+  .headingRow h3,.sourceCard h4 { font-size:1.125rem; line-height:1.3; }
+  .kicker { font-size:.8rem; line-height:1.35; }
+  .separationNotice,.message { font-size:.875rem; line-height:1.55; padding:.85rem; }
+  .conflictCard p { font-size:.875rem; line-height:1.55; }
+  .conflictCard code,.sourceTopRow code { font-size:.75rem; line-height:1.4; }
+  .summaryGrid { grid-template-columns:1fr; gap:.6rem; }
+  .summaryGrid div { padding:.7rem; }
+  .summaryGrid dt { font-size:.75rem; line-height:1.35; }
+  .summaryGrid dd { font-size:.9375rem; line-height:1.45; }
+  .pathStatuses { gap:.5rem; }
+  .pathStatuses span { font-size:.8125rem; line-height:1.4; padding:.4rem .55rem; }
+  .sourceDetails,.warningList { font-size:.875rem; line-height:1.55; }
+  .rawNote { font-size:.8125rem; line-height:1.5; }
+  .conflictActions button { width:100%; }
+}

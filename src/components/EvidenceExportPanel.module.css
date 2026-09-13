@@ -37,3 +37,19 @@
   .evidenceKinds { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .actions { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
+@media (max-width:480px) {
+  .panel { gap:1rem; padding:1rem; }
+  .headingRow h3 { font-size:1.25rem; line-height:1.25; }
+  .kicker { font-size:.8rem; line-height:1.35; }
+  .evidenceCard { padding:.9rem; }
+  .evidenceCard strong { font-size:1rem; line-height:1.4; }
+  .evidenceCard span,.supportNote { font-size:.875rem; line-height:1.55; }
+  .actions { gap:.6rem; }
+  .message { font-size:.9375rem; line-height:1.5; }
+  .previewHeading { flex-direction:column; }
+  .previewHeading span { font-size:.875rem; line-height:1.45; }
+  .previewWrap { padding:.8rem; }
+  .previewWrap pre { padding:.85rem; font-size:.875rem; line-height:1.6; }
+  .governance strong { font-size:.9375rem; line-height:1.5; }
+  .governance p { font-size:.875rem; line-height:1.55; }
+}
