@@ -1,0 +1,8 @@
+import { testPackCatalog } from "./testPackCatalog";
+describe("testPackCatalog", () => {
+  it("uses unique pack and revision identifiers", () => { const ids=testPackCatalog.map(p=>p.id); const revisions=testPackCatalog.map(p=>p.revisionId); expect(new Set(ids).size).toBe(ids.length); expect(new Set(revisions).size).toBe(revisions.length); });
+  it("keeps the imported GP4 stall pack distinct from the count-in pack", () => { const countIn=testPackCatalog.find(p=>p.id==="imported-guitar-count-in"); const stall=testPackCatalog.find(p=>p.id==="imported-gp4-stall-freeze"); expect(countIn?.issueRefs).toContain("#38"); expect(stall?.issueRefs).toContain("#48"); expect(stall?.statusContext).toContain("separate from #38"); });
+  it("marks Wake Lock as a completed-issue regression pack", () => { const wakeLock=testPackCatalog.find(p=>p.id==="wake-lock-regression"); expect(wakeLock?.referenceOnly).toBe(true); expect(wakeLock?.statusContext).toContain("status:done"); });
+  it("defines #40 structured evidence without deriving the tester result", () => { const p=testPackCatalog.find(p=>p.id==="piano-c3-lower-range"); expect(p?.structuredEvidence?.kind).toBe("piano40"); expect(p?.structuredEvidence?.fields.map(f=>f.key)).toEqual(expect.arrayContaining(["correctStableCount","stableWrongCount","wrongNoteHeard","noStableCount","carryoverStaleCount","retryCount"])); expect(p?.structuredEvidence?.note.toLowerCase()).toContain("never choose"); });
+  it("does not describe catalog completion as FMQ acceptance", () => { for(const pack of testPackCatalog){ expect(pack.completionRule.toLowerCase()).not.toContain("issue passed"); expect(pack.completionRule.toLowerCase()).not.toContain("acceptance passed"); } });
+});

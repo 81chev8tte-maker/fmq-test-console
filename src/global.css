@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,650;12..96,750&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap');
+
+*, *::before, *::after { box-sizing: border-box; }
+html, body, #root { min-width: 100%; min-height: 100%; }
+html { background: var(--background); }
+body { margin: 0; min-width: 320px; min-height: 100vh; background: var(--background); color: var(--foreground); font-family: var(--font-family-base); }
+#root { min-height: 100vh; }
+button, input, textarea, select { font: inherit; }
+
+:root {
+  --z-overlay: 400; --z-spotlight: 1000; --z-critical: 2000;
+  --spacing-1: 0.25rem; --spacing-2: 0.5rem; --spacing-3: 0.75rem; --spacing-4: 1rem; --spacing-6: 1.5rem; --spacing-8: 2rem; --spacing-12: 3rem; --spacing-16: 4rem; --spacing-20: 5rem;
+  --background: #f3f6f7; --foreground: #142029; --surface: #e8eef0; --surface-foreground: #142029; --sidebar: #e4eaec; --sidebar-foreground: #142029;
+  --card: #fbfcfc; --card-foreground: #142029; --popup: #fbfcfc; --popup-foreground: #142029;
+  --primary: #0d6870; --primary-foreground: #f7ffff; --secondary: #dbe5e7; --secondary-foreground: #1e3138; --accent: #14a9b7; --accent-foreground: #071719;
+  --muted: #e9eef0; --muted-foreground: #60717a; --success: #26745d; --success-foreground: #f4fffb; --error: #a94747; --error-foreground: #fff8f8; --warning: #91641d; --warning-foreground: #fffaf0;
+  --info: #236e83; --info-foreground: #f5fdff; --info-hover: #1e6275; --info-active: #195465; --border: #c7d2d6;
+  --font-family-base: 'IBM Plex Sans', system-ui, sans-serif; --font-family-display: 'Bricolage Grotesque', 'IBM Plex Sans', system-ui, sans-serif; --font-family-monospace: 'IBM Plex Mono', ui-monospace, monospace; --font-family-cursive: cursive;
+  --shadow: 0 1px 2px rgba(20, 32, 41, 0.06); --shadow-md: 0 6px 18px rgba(20, 32, 41, 0.08); --shadow-lg: 0 14px 36px rgba(20, 32, 41, 0.12); --shadow-focus: 0 0 0 3px rgba(20, 169, 183, 0.24);
+  --radius-sm: 0.4rem; --radius: 0.65rem; --radius-md: 0.85rem; --radius-lg: 1rem; --radius-full: 999px;
+  --animation-duration-fast: 120ms; --animation-duration-normal: 180ms; --animation-duration-slow: 260ms;
+  --chart-color-1: #0d6870; --chart-color-2: #14a9b7; --chart-color-3: #517986; --chart-color-4: #91641d; --chart-color-5: #a94747;
+}
+.dark {
+  --background: #0d1419; --foreground: #e8f1f3; --surface: #151f25; --surface-foreground: #e8f1f3; --sidebar: #111a20; --sidebar-foreground: #e8f1f3;
+  --card: #182329; --card-foreground: #e8f1f3; --popup: #1a262d; --popup-foreground: #e8f1f3; --primary: #2ec3ce; --primary-foreground: #071417;
+  --secondary: #25333a; --secondary-foreground: #e2ecef; --accent: #39d2dc; --accent-foreground: #061214; --muted: #202c32; --muted-foreground: #9aacb4;
+  --success: #4aa989; --success-foreground: #071b14; --error: #db7373; --error-foreground: #250909; --warning: #d0a24e; --warning-foreground: #211606;
+  --info: #55a9c2; --info-foreground: #06171d; --info-hover: #66b7cf; --info-active: #3d91a9; --border: #33424a;
+  --chart-color-1: #2ec3ce; --chart-color-2: #71d8df; --chart-color-3: #7fa3ae; --chart-color-4: #d0a24e; --chart-color-5: #db7373;
+}
