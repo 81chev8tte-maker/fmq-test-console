@@ -19,10 +19,9 @@ jobs:
           curl --fail --location --retry 3 --output /tmp/g1tree.tgz 'https://89d45c2a-99e5-42c9-a178-6163b31a5256.sandbox.floot.app/_cdn/static/497c63e2-6fb5-487e-a8cd-bbdd9e3f2e3d-fmq-test-console-g1-bootstrap-v2.tgz'
           echo '32c9fbb046cac48f7581e427c7eb217c4b4e409daf41d23bf864c4c377452581  /tmp/g1tree.tgz' | sha256sum --check
           tar -xzf /tmp/g1tree.tgz -C .
-          rm .github/workflows/g1-bootstrap.yml
       - name: Verify migration boundaries
         run: |
-          if grep -RInE '@floot|_floot|/_api|/_cdn|process\.env|react-helmet|react-router|react-query|sonner|localStorage\.clear\(|indexedDB|serviceWorker|navigator\.serviceWorker|caches\.' src .github package.json vite.config.ts index.html; then
+          if grep -RInE '@floot|_floot|/_api|/_cdn|process\.env|react-helmet|react-router|react-query|sonner|localStorage\.clear\(|indexedDB|serviceWorker|navigator\.serviceWorker|caches\.' src .github/workflows/ci.yml package.json vite.config.ts index.html; then
             echo 'Forbidden Floot/runtime/PWA coupling found.' >&2
             exit 1
           fi
@@ -39,9 +38,11 @@ jobs:
       - run: npm run build
       - name: Verify GitHub Pages base path
         run: node -e "const fs=require('fs'); const html=fs.readFileSync('dist/index.html','utf8'); if(!html.includes('/fmq-test-console/assets/')) process.exit(1)"
-      - name: Commit verified migration tree
+      - name: Commit verified application tree
         run: |
           rm -rf dist
+          rm -f .github/workflows/ci.yml
+          git restore .github/workflows/g1-bootstrap.yml
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add -A
