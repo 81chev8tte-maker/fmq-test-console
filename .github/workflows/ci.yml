@@ -29,3 +29,5 @@ jobs:
           name: github-pages-candidate
           path: dist
           if-no-files-found: error
+
+# G1 migration parity verification workflow.
