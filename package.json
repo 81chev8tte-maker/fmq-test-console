@@ -8,6 +8,7 @@
     "test": "vitest run",
     "typecheck": "tsc --noEmit",
     "build": "vite build",
+    "verify:pwa": "node scripts/verify-pwa-build.mjs",
     "preview": "vite preview"
   },
   "dependencies": {
@@ -27,6 +28,7 @@
     "jsdom": "26.1.0",
     "typescript": "5.9.2",
     "vite": "7.3.6",
+    "vite-plugin-pwa": "1.3.0",
     "vitest": "4.1.11"
   }
 }
